@@ -29,6 +29,7 @@
 **/.env
 **/sa.json
 
+**/dist
 # vercel
 **/.vercel
 

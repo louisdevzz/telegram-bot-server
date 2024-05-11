@@ -1,3 +1,4 @@
+
 const { Account } = require('@near-js/accounts');
 const { KeyPair, PublicKey } = require('@near-js/crypto');
 const { InMemoryKeyStore } = require('@near-js/keystores');
@@ -18,7 +19,7 @@ const instatiateAccount = async (network, accountName, pk) => {
 };
 
 const authenticatedKeyStore = async (network, account, pk)=> {
-  await keyStore.setKey(network, account, KeyPair.fromString(pk)= requireString(pk));
+  await keyStore.setKey(network, account, KeyPair.fromString(pk));
 
   return keyStore;
 };
@@ -67,7 +68,7 @@ const createAccount = async (implicitAccount, publicKey, network) => {
 };
 
 const submitTransaction = async ({
-  network = process.env.NEXT_PUBLIC_NETWORK_ID ,
+  network = process.env.NEXT_PUBLIC_NETWORK_ID,
   delegate,
 }) => {
   const isMainnet = network === 'mainnet';
@@ -123,4 +124,12 @@ const fundAccount = async (accountId, network) => {
     throw error;
   }
 };
-module.exports={signedDelegate,instatiateAccount,authenticatedKeyStore,randomKeyStore,connects,createAccount,submitTransaction,fundAccount}
+module.exports={
+  signedDelegate,
+  connects,
+  randomKeyStore,
+  instatiateAccount,
+  fundAccount,
+  submitTransaction,
+  createAccount
+}
