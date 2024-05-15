@@ -8,6 +8,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@magic-ext/near": "^23.0.2",
     "@near-js/accounts": "^1.2.0",
     "@near-js/crypto": "^1.2.3",
     "@near-js/keystores": "^0.0.11",
@@ -24,6 +25,7 @@
     "express": "^4.19.2",
     "form-data": "^4.0.0",
     "ioredis": "^5.4.1",
+    "magic-sdk": "^28.0.3",
     "near-api-js": "^4.0.1",
     "near-seed-phrase": "^0.2.0",
     "nodemon": "^3.1.0",

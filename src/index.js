@@ -18,7 +18,7 @@ async function releyTransaction(delegate) {
       delegate: deserializeDelegate,
       network: process.env.NEXT_PUBLIC_NETWORK_ID,
     });
-
+    console.log("result",result)
     return {result};
   } catch (error) {
     return error;
