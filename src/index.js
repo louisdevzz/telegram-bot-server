@@ -16,7 +16,7 @@ async function releyTransaction(delegate) {
     console.log("deserializeDelegate: ",deserializeDelegate)
     const result = await submitTransaction({
       delegate: deserializeDelegate,
-      network: process.env.NEXT_PUBLIC_NETWORK_ID,
+      network: process.env.NEAR_NETWORK,
     });
     console.log("result",result)
     return {result};

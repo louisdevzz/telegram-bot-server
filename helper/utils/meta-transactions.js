@@ -52,7 +52,7 @@ const connects = async (accountId, keyStore, network = 'mainnet') => {
 const createAccount = async (implicitAccount, publicKey, network) => {
   const isMainnet = network === 'mainnet';
   const RELAYER_ACCOUNT = isMainnet
-    ? process.env.NEXT_PUBLIC_RELAYER_ACCOUNT_ID_NEAR_MAINNET
+    ? process.env.RELAYER_ACCOUNT_ID
     : process.env.NEXT_PUBLIC_RELAYER_ACCOUNT_ID_NEAR_TESTNET;
 
   if (!RELAYER_ACCOUNT) {
@@ -60,7 +60,7 @@ const createAccount = async (implicitAccount, publicKey, network) => {
   }
 
   const relayerPrivateKey = isMainnet
-    ? (process.env.RELAYER_PRIVATE_KEY_NEAR_MAINNET )
+    ? (process.env.RELAYER_PRIVATE_KEY )
     : (process.env.RELAYER_PRIVATE_KEY_NEAR_TESTNET );
   const relayerAccount = await instatiateAccount(network, RELAYER_ACCOUNT, relayerPrivateKey);
   await relayerAccount.createAccount(implicitAccount, PublicKey.fromString(publicKey), BigInt('0'));
@@ -68,17 +68,17 @@ const createAccount = async (implicitAccount, publicKey, network) => {
 };
 
 const submitTransaction = async ({
-  network = process.env.NEXT_PUBLIC_NETWORK_ID,
+  network = process.env.NEAR_NETWORK,
   delegate,
 }) => {
   const isMainnet = network === 'mainnet';
   const RELAYER_ACCOUNT = isMainnet
-    ? process.env.NEXT_PUBLIC_RELAYER_ACCOUNT_ID_NEAR_MAINNET
+    ? process.env.RELAYER_ACCOUNT_ID
     : process.env.NEXT_PUBLIC_RELAYER_ACCOUNT_ID_NEAR_TESTNET;
 
   try {
     const relayerPrivateKey = isMainnet
-      ? (process.env.RELAYER_PRIVATE_KEY_NEAR_MAINNET )
+      ? (process.env.RELAYER_PRIVATE_KEY )
       : (process.env.RELAYER_PRIVATE_KEY_NEAR_TESTNET );
 
     if (!RELAYER_ACCOUNT || !relayerPrivateKey) {
@@ -102,7 +102,7 @@ const submitTransaction = async ({
 const fundAccount = async (accountId, network) => {
   const isMainnet = network === 'mainnet';
   const RELAYER_ACCOUNT = isMainnet
-    ? process.env.NEXT_PUBLIC_RELAYER_ACCOUNT_ID_NEAR_MAINNET
+    ? process.env.RELAYER_ACCOUNT_ID
     : process.env.NEXT_PUBLIC_RELAYER_ACCOUNT_ID_NEAR_TESTNET;
 
   if (!RELAYER_ACCOUNT) {
@@ -110,7 +110,7 @@ const fundAccount = async (accountId, network) => {
   }
 
   const relayerPrivateKey = isMainnet
-    ? (process.env.RELAYER_PRIVATE_KEY_NEAR_MAINNET )
+    ? (process.env.RELAYER_PRIVATE_KEY )
     : (process.env.RELAYER_PRIVATE_KEY_NEAR_TESTNET );
   if (!RELAYER_ACCOUNT || !relayerPrivateKey) {
     throw new Error('Signer details not found in firebase');
