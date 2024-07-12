@@ -2,7 +2,7 @@
   "name": "telegram-bot-server",
   "version": "1.0.0",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
